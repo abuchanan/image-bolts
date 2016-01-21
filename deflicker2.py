@@ -5,6 +5,7 @@ from more_itertools import pairwise
 import numpy
 from scipy import interpolate
 from skimage import io, img_as_ubyte, exposure, color
+import matplotlib.pyplot as plot
 
 
 parser = argparse.ArgumentParser()
@@ -66,11 +67,7 @@ def use_pairs(paths, bins):
             yield match(img_b, ref, bins)
 
 
-if __name__ == '__main__':
-    args = parser.parse_args()
-    output_directory = args.output_path
-    paths = list(args.images)
-
+def deflicker():
     #bins = numpy.arange(0, 1, 0.01)
     bins = 256
 
